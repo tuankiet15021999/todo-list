@@ -1,38 +1,235 @@
-.App {
-  text-align: center;
+/* ---------Dùng chung---------- */
+body {
+  background-image: url('../public/background.jpg');
+}
+a {
+  text-decoration: none;
+}
+table {
+  width: 100%;
+}
+li {
+  list-style-type: none;
+}
+ul {
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+
+.margin-l-10 {margin-left: 10px;}
+.margin-t-10 {margin-top: 10px;}
+.margin-b-10 {margin-bottom: 10px;}
+.margin-r-10 {margin-right: 10px;}
+
+.padding-10 {padding:10px}
+
+.display-b {display: block;}
+.display-none {display: none;}
+.float-left {float:left}
+.float-right {float:right}
+.float-none {float:none}
+.clear {clear: both;}
+
+.disabled {
+  cursor: not-allowed !important;
   pointer-events: none;
+  background-color: darkgray !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button {
+  border: none;
+  padding: 10px;
+  background: brown;
   color: white;
+  border-radius: 5px;
+  width: 20%;
+  cursor: pointer;
+}
+.button:active {
+  transform: translateY(4px);
+}
+.input {
+  width: 100%;
+  border: none;
+  padding: 10px;
+}
+.darkgray-background {
+  background: darkgray;
+}
+.hidden {
+  display: none;
+}
+/* ----------HOME----------- */
+.App {
+  height: 100%;
+  padding: 200px;
+  font-family: cursive;
+  background-size: 100% auto;
+}
+.title-container {
+  margin-bottom: 20px;
+  animation: transformTodo 1s;
+}
+.body-container {
+  animation: transformList 1s;
+}
+.title {
+  padding: 10px 0px 10px 40px;
+  margin: 0px;
+  color: #3177bf;
+  display: flex;
+  justify-content: space-between;
+}
+.background-content {
+  background: beige;
+  border-radius: 10px;
+  padding: 10px 40px 10px 40px;
+  box-shadow: 1px 4px goldenrod;
+}
+.list-data {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+.list-data:hover {
+  box-shadow: 1px 3px black;
+}
+.list-data:active {
+  background-color: #3177bf;
+  color: white;
+  box-shadow: 1px 3px black;
+  transform: translateY(4px);
+}
+.expandable {
+  overflow: hidden;
+  transition: height 1s ease;
+  display: none;
+  animation: fadein .5s;
+}
+.toggle{
+  display: block;
+}
+.create-todo-btn {
+  height: 100%;
+  margin-top: 18px;
+  background: beige;
+  width: auto;
+  font-size: 29px;
+  font-weight: bold;
+  color: #3177bf;
+}
+.detele-todo-btn {
+  background: transparent;
+  color: brown;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -56px;
+  width: 20px;
+}
+.edit-todo-btn {
+  background: transparent;
+  border: none;
+  margin-right: 25px;
+  color: #3177bf;
+  float: right;
+  margin-top: -56px;
+  width: 20px;
+}
+.create-job-btn {
+  height: 100%;
+  background: transparent;
+  width: auto;
+  font-size: 29px;
+  font-weight: bold;
+  color: #3177bf;
+}
+.detele-job-btn {
+  background: transparent;
+  color: brown;
+  border: none;
+}
+.edit-job-btn {
+  background: transparent;
+  border: none;
+  color: #3177bf;
+}
+/* ----------Modal-------- */
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, .4);
+}
+.modal-container {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 50%;
+  position: relative;
+  left: 23%;
+  animation: fadein .5s;
+}
+.close-modal {
+  font-size: 40px;
+  margin-top: -30px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* -----------Animation----------- */
+@keyframes fadein {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
 }
+@keyframes transformTodo {
+	from {
+		transform: translateY(-500px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+@keyframes transformList {
+	from {
+		transform: translateX(-500px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+/* ----------REPONSIVE--------- */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 750px) {
+  .App {
+    padding: 100px;
   }
-  to {
-    transform: rotate(360deg);
+  .btn-confirm {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .App {
+    padding: 20px;
   }
 }
